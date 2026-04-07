@@ -64,7 +64,7 @@ export async function testConnection() {
     console.log('✅ PostgreSQL conectado:', result.rows[0].now);
     return true;
   } catch (error) {
-    console.error('❌ No se pudo conectar a PostgreSQL:', error.message);
+    console.error('❌ No se pudo conectar a PostgreSQL:', error.message, error.code, JSON.stringify({host: error.address, port: error.port}));
     return false;
   }
 }
